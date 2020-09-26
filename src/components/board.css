@@ -1,0 +1,19 @@
+#board {
+    border: 0.01rem solid var(--darkerlight);
+    display: grid;
+    grid-template-rows: repeat(3, 18rem);
+    grid-template-columns: repeat(3, 18rem);
+}
+
+.tile-group {
+    border: 0.01rem solid var(--darkerlight);
+    display: grid;
+    grid-template-rows: repeat(3, 6rem);
+    grid-template-columns: repeat(3, 6rem);
+}
+
+.tile {
+    border-right: 0.01rem solid var(--darkerlight);
+    border-bottom: 0.01rem solid var(--darkerlight);
+    font-size: 2em;
+}
