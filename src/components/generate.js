@@ -1,5 +1,6 @@
 function generate() {
     let arrs = [];
+    let restart = false;
     for (let i = 0; i < 3; i++) {
         arrs.push([]);
         for (let j = 0; j < 3; j++) {
@@ -9,13 +10,20 @@ function generate() {
                 arrs[i][j].push([]);
                 for (let l = 0; l < 3; l++) {
                     const toInsert = insert(nums, arrs, {i, j, k, l});
+                    if (toInsert === "restart") {
+                        restart = true;
+                        break;
+                    }
                     arrs[i][j][k].push(toInsert);
                     nums.splice(nums.indexOf(toInsert), 1);
                 }
+                if (restart) { break; }
             }
+            if (restart) { break; }
         }
+        if (restart) { break; }
     }
-    if (arrs.flat().flat().flat().flat().includes("not found")) { return generate() }
+    if (restart) { return generate() }
     return arrs
 }
 
@@ -29,7 +37,7 @@ function insert(nums, arrs, ijkl) {
             return nums[m]
         }
     }
-    return "not found"
+    return "restart"
 }
 
 function chek(nums, sames) {
@@ -54,7 +62,7 @@ function gennums() {
 
 
 function randnum (min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + 1
+    return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
 export default generate;

@@ -17,3 +17,11 @@
     border-bottom: 0.01rem solid var(--darkerlight);
     font-size: 2em;
 }
+
+.open {
+    cursor: pointer;
+}
+
+.open:hover {
+    background-color: var(--light);
+}
