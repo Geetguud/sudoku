@@ -15,13 +15,27 @@
 .tile {
     border-right: 0.01rem solid var(--darkerlight);
     border-bottom: 0.01rem solid var(--darkerlight);
-    font-size: 2em;
-}
-
-.open {
+    font-size: 2.5em;
     cursor: pointer;
 }
 
-.open:hover {
+.tile:hover {
+    background-color: var(--darklight);
+    opacity: 0.8;
+}
+
+.higlig {
     background-color: var(--light);
+}
+
+.selected {
+    background-color: var(--darklight);
+}
+
+.filled {
+    color: var(--darkerdark)
+}
+
+.wronk, .wronk:hover {
+    background-color: rgba(255, 75, 92, 0.3);
 }

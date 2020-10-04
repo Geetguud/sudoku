@@ -32,3 +32,19 @@ html {
     width: 100%;
     padding: 1rem 0;
 }
+
+.clickables {
+    border: none;
+    background-color: transparent;
+    font-family: "Lato";
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--dark);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.clickables:hover {
+    background-color: var(--light);
+    text-decoration: unset;
+}

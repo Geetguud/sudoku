@@ -7,12 +7,18 @@ import configure from "./configure";
 function App() {
     const [boardset, setBoard] = useState(null);
     const [boardplay, setBoardPlay] = useState(null);
+    const [select, setSelect] = useState(null);
+    const [fillin, setFillin] = useState(null);
+    const [cheks, setCheks] = useState(true);
+    const [deletin, setDeletin] = useState(false);
 
     function initialize(difficulty) {
         const newboard = generate();
         const newboardplay = configure(newboard.map(each => each), difficulty);
         setBoard(newboard);
         setBoardPlay(newboardplay);
+        setSelect(null);
+        setFillin(null);
     }
     
     useEffect(() => { initialize("easy") }, [])
@@ -24,8 +30,20 @@ function App() {
             <Board
                 boardset={boardset}
                 boardplay={boardplay}
+                select={select}
+                setSelect={setSelect}
+                fillin={fillin}
+                cheks={cheks}
+                deletin={deletin}
+                setDeletin={setDeletin}
             />
             <Sidebar
+                select={select}
+                setFillin={setFillin}
+                initialize={initialize}
+                cheks={cheks}
+                setCheks={setCheks}
+                setDeletin={setDeletin}
             />
         </main>
     )

@@ -1,9 +1,10 @@
 function configure(board, difficulty) {
-    const shownumbers = difficulty === "easy" ? 38 
-        : difficulty === "medium" ? 30 
-        : difficulty === "hard" ? 25
-        : difficulty === "expert" ? 23
+    const shownumbers = difficulty === "easy" ? 43 
+        : difficulty === "medium" ? 51 
+        : difficulty === "hard" ? 56
+        : difficulty === "expert" ? 58
         : null;
+    if (!shownumbers) { return board }
     let configboard = board.flat().flat().flat().flat();
     let shown = 0;
     while (shown < shownumbers) {
