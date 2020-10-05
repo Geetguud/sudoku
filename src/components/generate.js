@@ -1,4 +1,11 @@
 function generate() {
+    while (true) {
+        let tryout = gen();
+        if (tryout !== "nah") { return tryout }
+    }
+}
+
+function gen() {
     let arrs = [];
     let restart = false;
     for (let i = 0; i < 3; i++) {
@@ -23,17 +30,16 @@ function generate() {
         }
         if (restart) { break; }
     }
-    if (restart) { return generate() }
+    if (restart) { return "nah" }
     return arrs
 }
 
 function insert(nums, arrs, ijkl) {
     const {i, j, k, l} = ijkl;
-    const samebox = arrs[i][j].flat().flat();
     const samerow = arrs[i].map(each => each[k]).flat().flat();
     const samecolumn = arrs.map(each => each[j].map(eachh => eachh[l])).flat().flat();
     for (let m = 0; m < nums.length; m++) {
-        if (chek(nums.slice(m), {samebox, samecolumn, samerow})) {
+        if (chek(nums.slice(m), {samecolumn, samerow})) {
             return nums[m]
         }
     }
@@ -41,8 +47,8 @@ function insert(nums, arrs, ijkl) {
 }
 
 function chek(nums, sames) {
-    const {samebox, samecolumn, samerow} = sames;
-    if (samebox.includes(nums[0]) || samerow.includes(nums[0]) || samecolumn.includes(nums[0])) {
+    const {samecolumn, samerow} = sames;
+    if (samerow.includes(nums[0]) || samecolumn.includes(nums[0])) {
         return false
     } else { return true }
 }
