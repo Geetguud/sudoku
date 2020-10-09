@@ -7,7 +7,7 @@ function Sidebar(props) {
     const operators = {setFillin, select};
 
     function setDiff(event) { setDifficulty(event.target.value); }
-    function todelete() { if (!select) { return } else { setDeletin(true); }}
+    function todelete() { if (!select) { return } else { setDeletin(true); setFillin(null); }}
 
     return (
         <div id="sidebar" className="flex-center">
@@ -18,16 +18,18 @@ function Sidebar(props) {
                 <input type="checkbox" checked={cheks} onChange={() => setCheks(!cheks)}></input>
                 <i className="chekmark"></i>
             </label>
-            <label>difficulty:
-                <select className="select-diff clickables" value={difficulty} onChange={setDiff}>
-                    <option value="easy">easy</option>
-                    <option value="medium">medium</option>
-                    <option value="hard">hard</option>
-                    <option value="expert">expert</option>
-                </select>
-            </label>
-            <button className="newgame clickables" onClick={() => initialize(difficulty)}>new game</button>
-            <p>note: puzzle generation is completely random</p>
+            <div className="optnew">
+                <label>difficulty:
+                    <select className="select-diff clickables" value={difficulty} onChange={setDiff}>
+                        <option value="easy">easy</option>
+                        <option value="medium">medium</option>
+                        <option value="hard">hard</option>
+                        <option value="expert">expert</option>
+                    </select>
+                </label>
+                <button className="newgame clickables" onClick={() => initialize(difficulty)}>new game</button>
+                <p>note: puzzle generation is completely random</p>
+            </div>
         </div>
     )
 }

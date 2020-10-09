@@ -57,7 +57,7 @@ function Tile(props) {
     useEffect(() => {
         if (select && deletin) {
             const {i, j, k, l} = select;
-            if (fillin && i === ijkl.i && j === ijkl.j && k === ijkl.k && l === ijkl.l) { setFill(null); }
+            if (fill && i === ijkl.i && j === ijkl.j && k === ijkl.k && l === ijkl.l) { setFill(null); }
             setDeletin(false);
         }
     }, [deletin])
